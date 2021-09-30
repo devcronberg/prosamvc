@@ -42,6 +42,13 @@ namespace Prosa.MvcTemplate.Controllers
             return Json(personer);
         }
 
+        [HttpGet("~/js")]
+        public IActionResult Js()
+        {
+            var personer = personRepository.HentPersoner();
+            return View(personer);
+        }
+
         [HttpGet("~/Index2")]
         public IActionResult Index2()    
         {

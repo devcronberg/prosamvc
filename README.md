@@ -1,6 +1,9 @@
 # Prosa webinar - ASP.NET MVC
 
 > Michell Cronberg (michell@cronberg.dk) - ult. september 2021
+>
+> - [Introduktion til webudvikling](https://www.introweb.dk)
+> - [Bogen om C#](https://www.bogenomcsharp.dk)
 
 ## Hent værktøj
 
@@ -11,6 +14,7 @@
 ## Links
 
 - [Generelle links](https://github.com/devcronberg/kursus)
+- [Web demo](http://webdemo.cronberg.dk/)
 
 ## Hent repo
 
@@ -56,9 +60,12 @@ For at arbejde under https skal der [udstedes](https://www.hanselman.com/blog/de
   - Route
   - Controller
   - View
+    - HTML
+    - CSS
+    - JavaScript
   - Model
   - DI
   - POST
-  - JSON 
+  - JSON
     - jQuery
     - Python

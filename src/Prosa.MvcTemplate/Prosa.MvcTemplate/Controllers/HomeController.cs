@@ -19,7 +19,12 @@ namespace Prosa.MvcTemplate.Controllers
         [HttpGet("~/")]
         public IActionResult Index()    // public async Task<IActionResult> Index()        
         {
+            // Demo log
             logger.LogInformation("Test af app log");
+
+            // Demo brug af repository            
+            List<Person> personer = personRepository.HentPersoner();
+
             return View();
         }
 
@@ -29,7 +34,6 @@ namespace Prosa.MvcTemplate.Controllers
             this.environment = environment;
             this.logger = logger;
             this.personRepository = personRepository;
-            var t = personRepository.HentPersoner();
         }
     }
 }

@@ -8,6 +8,10 @@
 - [Visual Studio Code](https://code.visualstudio.com/)
   - [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
 
+## Links
+
+- [Generelle links](https://github.com/devcronberg/kursus)
+
 ## Hent repo
 
 Kode, link, billeder mv kan finde i repo
@@ -36,6 +40,8 @@ For at arbejde under https skal der [udstedes](https://www.hanselman.com/blog/de
 
 ## Demo App
 
+- HTTPs
+  - chrome dev tool / fiddler
 - Server / Klient
   - Server baseret app
     - Web server
@@ -45,5 +51,14 @@ For at arbejde under https skal der [udstedes](https://www.hanselman.com/blog/de
     - statisk
     - frameworks
       - Angular, React, Vue
-- HTTPs
-  - chrome dev tool / fiddler
+- MVC
+  - Arkitektur
+  - Route
+  - Controller
+  - View
+  - Model
+  - DI
+  - POST
+  - JSON 
+    - jQuery
+    - Python

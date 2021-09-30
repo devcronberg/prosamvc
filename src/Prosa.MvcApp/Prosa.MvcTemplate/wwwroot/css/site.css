@@ -1,1 +1,7 @@
-﻿
+﻿h1 {
+color: red;
+}
+
+table tr td {
+    padding: 20px;
+}

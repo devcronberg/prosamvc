@@ -1,2 +1,19 @@
-﻿<h1>Index</h1>
+﻿@model Prosa.MvcTemplate.Models.ViewModels.Home.IndexViewModel
 
+<h1>Index</h1>
+
+<p>Klokken er @Model.Nu.ToLongTimeString()</p>
+<p>Setting = @Model.SettingAVærdi</p>
+<table>
+    <tr>
+        <th>Navn</th>
+        <th>Alder</th>
+    </tr>
+    @foreach (var person in @Model.Personer)
+    {
+        <tr>
+            <td>@person.Navn</td>
+            <td>@person.Alder</td>
+        </tr>
+    }
+</table>

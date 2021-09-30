@@ -32,9 +32,15 @@ namespace Prosa.MvcTemplate
             Settings settings = new Settings();
             Configuration.Bind("Settings", settings);
             services.AddSingleton(settings);
-
+            
             string dataSti = System.IO.Path.Combine(environment.ContentRootPath, "data");
-            services.AddScoped<IPersonRepository>(i => new PersonRepositoryFilMock(dataSti));
+            services.AddScoped<IPersonRepository>(i =>
+            {
+                if (DateTime.Now.Millisecond % 2 == 0)
+                    return new PersonRepositoryProd(dataSti);
+                else
+                    return new PersonRepositoryFilMock(dataSti);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

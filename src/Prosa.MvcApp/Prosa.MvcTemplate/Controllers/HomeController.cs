@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿//// Demo log
+//logger.LogInformation("Test af app log");
+
+//// Demo brug af repository            
+//List<Person> personer = personRepository.HentPersoner();
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Prosa.MvcTemplate.Models;
+using Prosa.MvcTemplate.Models.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,16 +22,29 @@ namespace Prosa.MvcTemplate.Controllers
         private readonly ILogger<HomeController> logger;
         private readonly IPersonRepository personRepository;
 
-        [HttpGet("~/")]
-        [HttpGet("~/Test")]
-        public IActionResult Index()    // public async Task<IActionResult> Index()        
+        [HttpGet("~/")]        
+        public IActionResult Index()    
         {
-            // Demo log
-            logger.LogInformation("Test af app log");
+            IndexViewModel model = new IndexViewModel();
+            model.Nu = TidsHelper.HentTid();
+            model.SettingAVærdi = settings.SettingA;
+            //PersonRepositoryFilMock rep = new PersonRepositoryFilMock(System.IO.Path.Combine(environment.ContentRootPath, "data"));
+            //PersonRepositoryProd rep = new PersonRepositoryProd(System.IO.Path.Combine(environment.ContentRootPath, "data"));
+            model.Personer = personRepository.HentPersoner();
 
-            // Demo brug af repository            
-            List<Person> personer = personRepository.HentPersoner();
+            return View(model);
+        }
 
+        [HttpGet("~/data")]
+        public IActionResult Data()
+        {
+            var personer = personRepository.HentPersoner();
+            return Json(personer);
+        }
+
+        [HttpGet("~/Index2")]
+        public IActionResult Index2()    
+        {
             return View();
         }
 

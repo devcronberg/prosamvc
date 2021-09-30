@@ -1,0 +1,10 @@
+Navn;Alder;By;IForm
+Person1;10;By1;true
+Person2;20;By2;false
+Person3;30;By3;true
+Person4;40;By1;false
+Person5;50;By2;true
+Person6;60;By3;false
+Person7;70;By1;true
+Person8;80;By2;false
+Person9;90;By3;true

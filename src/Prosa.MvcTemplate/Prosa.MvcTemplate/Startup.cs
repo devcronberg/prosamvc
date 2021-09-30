@@ -15,12 +15,15 @@ namespace Prosa.MvcTemplate
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment environment;
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            this.environment = environment;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -29,6 +32,9 @@ namespace Prosa.MvcTemplate
             Settings settings = new Settings();
             Configuration.Bind("Settings", settings);
             services.AddSingleton(settings);
+
+            string dataSti = System.IO.Path.Combine(environment.ContentRootPath, "data");
+            services.AddScoped<IPersonRepository>(i => new PersonRepositoryFilMock(dataSti));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
